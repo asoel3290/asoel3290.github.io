@@ -1,9 +1,9 @@
 # Florida Coastal Levels
 
 ### Team Members
-Austin
-Lintang
-Chris
+1. Austin
+2. Lintang
+3. Chris
 
 ### Final Proposal
 1. Persona/Scenario
