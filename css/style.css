@@ -1,1 +1,64 @@
 /*insert style here*/
+#map { height: 600px; }
+
+#geojsonFeatures { 
+    fill: "black";
+    stroke: "black";
+    stroke-width: 1;
+}
+
+.sequence-control-container {  
+    width: 400px;  
+    height: 30px;  
+    background-color: rgba(255,255,255,0.8);  
+    padding: 10px;  
+    line-height: 45px;  
+    text-align: center;  
+    border: solid gray 1px;  
+}
+
+.range-slider {  
+    width: 250px;  
+}
+
+.step {  
+    width: 60px;  
+}
+
+.step img {  
+    width: 100%;  
+    height: auto;  
+}
+
+#forward {  
+    width: 30px;
+    height: 30px;
+    float: right;  
+}  
+
+#reverse {  
+    width: 30px;
+    height: 30px;
+    float: left;  
+}
+
+#counties {
+    fill: "black";
+    stroke: "black";
+    stroke-width: 1;
+    opacity: 100%;
+}
+
+#one_ft {
+    fill: "blue";
+    stroke: "blue";
+    stroke-width: 1;
+    opacity: 100%;
+}
+
+#two_ft {
+    fill: "pink";
+    stroke: "pink";
+    stroke-width: 1;
+    opacity: 100%;
+}
