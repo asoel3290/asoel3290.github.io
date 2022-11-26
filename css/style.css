@@ -1,5 +1,9 @@
 /*insert style here*/
-#map { height: 600px; }
+#map {
+    height: 600px;
+}
+
+/*#map { height: 600px; }
 
 #geojsonFeatures { 
     fill: "black";
@@ -42,23 +46,13 @@
     float: left;  
 }
 
-#counties {
-    fill: "black";
-    stroke: "black";
-    stroke-width: 1;
-    opacity: 100%;
+#map {
+    width:100%;
+    height:100%;
 }
-
-#one_ft {
-    fill: "blue";
-    stroke: "blue";
-    stroke-width: 1;
-    opacity: 100%;
+.leaflet-google-layer{
+    z-index: 0;
 }
-
-#two_ft {
-    fill: "pink";
-    stroke: "pink";
-    stroke-width: 1;
-    opacity: 100%;
-}
+.leaflet-map-pane{
+    z-index: 100;
+}*/

@@ -4,63 +4,64 @@ var map;
 var attrArray = ["1", "2", "3", "4", "7"];
 var expressed = attrArray[0];
 
-var counties = document.getElementById("counties");
-$.getJSON("data/FloridaCounties.geojson", function (response) {
-    //create a Leaflet GeoJSON layer and add it to the map
-    L.geoJson(response, {
-        onEachFeature: onEachFeature
-        /*style: function (feature) {
-            return {
-                color: "black",
-                fillColor: "black",
-                fillOpacity: "80%"
-            }
-        }*/
-    }).addTo(map);
-
-});
-var one_ft = document.getElementById("one_ft");
-$.getJSON("data/FloridaCounties.geojson", function (response) {
-    //create a Leaflet GeoJSON layer and add it to the map
-    L.geoJson(response, {
-        onEachFeature: onEachFeature
-        /*style: function (feature) {
-            return {
-                color: "blue",
-                fillColor: "blue",
-                fillOpacity: "0%"
-            }
-        }*/
-    }).addTo(map);
-
-});
-
-var two_ft = document.getElementById("two_ft");
-$.getJSON("data/FloridaCounties.geojson", function (response) {
-    //create a Leaflet GeoJSON layer and add it to the map
-    L.geoJson(response, {
-        onEachFeature: onEachFeature
-        /*style: function (feature) {
-            return {
-                color: "pink",
-                fillColor: "pink",
-                fillOpacity: "50%"
-            }
-        }*/
-    }).addTo(map);
-    createSequenceControls();
-});
-
 //create the map
 var map = L.map('map', {
     center: [26.3014, -80.6321],
     zoom: 7
 });
 
+/*var counties = $.getJSON("data/FloridaCounties.geojson", function (response) {
+    //create a Leaflet GeoJSON layer and add it to the map
+    L.geoJson(response, {
+        onEachFeature: onEachFeature,
+        style: function (feature) {
+            return {
+                color: "black",
+                fillColor: "black",
+                fillOpacity: "80%"
+            }
+        }
+    });
+
+});
+
+var one_ft = $.getJSON("data/FloridaCounties.geojson", function (response) {
+    //create a Leaflet GeoJSON layer and add it to the map
+    L.geoJson(response, {
+        onEachFeature: onEachFeature,
+        style: function (feature) {
+            return {
+                color: "blue",
+                fillColor: "blue",
+                fillOpacity: "0%"
+            }
+        }
+    });
+});
+
+var two_ft = $.getJSON("data/FloridaCounties.geojson", function (response) {
+    //create a Leaflet GeoJSON layer and add it to the map
+    L.geoJson(response, {
+        onEachFeature: onEachFeature,
+        style: function (feature) {
+            return {
+                color: "pink",
+                fillColor: "pink",
+                fillOpacity: "50%"
+            }
+        }
+    });
+}).addTo(two_ft);*/
+
+var counties = new L.GeoJson.AJAX("data/FloridaCounties.geojson");
+counties.addTo(map);
+
 //add OSM base tilelayer
 var usmap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
 }).addTo(map);
+
+//createSequenceControls();
 
 
 // specify the basemap and overlays to put in the layers control
@@ -68,13 +69,43 @@ var baseMaps = {
     "US": usmap,
 };
 
-var overlayMaps = {
-    "Counties": counties,
-    "one_ft": one_ft,
-    "two_ft": two_ft
+var overlayMaps = [{
+    groupName : "Low",
+    expanded: true,
+    layers : {
+        "Counties": counties,
+        "One_Foot": one_ft,
+        "Two_Feet": two_ft
+    }
+},{
+    groupName : "Medium",
+    expanded: true,
+    layers : {
+        "Counties": counties,
+        "One_Foot": one_ft,
+        "Two_Feet": two_ft    
+    }
+},{
+    groupName : "High",
+    expanded: true,
+    layers : {
+        "Counties": counties,
+        "One_Foot": one_ft,
+        "Two_Feet": two_ft  
+    }
+}];
+
+var options = {
+    container_width 	: "300px",
+    container_maxHeight : "350px", 
+    group_maxHeight     : "80px",
+    exclusive       	: false
 };
 
-//L.control.layers(overlayMaps).addTo(map);
+//L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+var control = L.Control.styledLayerControl(baseMaps, overlayMaps, options);
+map.addControl(control);
 
 //function to instantiate the Leaflet map
 function createMap() {
@@ -95,7 +126,7 @@ function onEachFeature(feature, layer) {
     };
 };
 
-function createSequenceControls() {
+/*function createSequenceControls() {
     //create range input element (slider)
     var SequenceControl = L.Control.extend({
         options: {
@@ -161,9 +192,9 @@ function updatePropSymbols(index) {
 
     if (index == 0) {
 
-        counties.opacity = "100%";
-        one_ft.opacity = "0%";
-        two_ft.opacity = "0%";
+        control.removeLayer( counties );
+        control.removeLayer( one_ft );
+        control.removeLayer( two_ft );
 
     } else if (index == 1) {
 
@@ -187,7 +218,7 @@ function getData(map) {
     counties;
     one_ft;
     two_ft;
-}
+}*/
 
 $(document).ready(createMap);
 //$(document).ready(createSequenceControls(map));
