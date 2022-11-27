@@ -93,21 +93,21 @@ var overlays = [
             "Counties": counties
         }
     }, {
-        groupName: "Low Scenario",
+        groupName: "Low",
         expanded: true,
         layers: {
             "2060": low_mid,
             "2100": low_end
         }
     }, {
-        groupName: "Intermediate Scenario",
+        groupName: "Intermediate",
         expanded: true,
         layers: {
             "2060": int_mid,
             "2100": int_end        
         }
     }, {
-        groupName: "High Scenario",
+        groupName: "High",
         expanded: true,
         layers: {
             "2060": high_mid,
@@ -150,7 +150,7 @@ low_end.StyledLayerControl = {
 }
 
 var options = {
-    container_width: "300px",
+    container_width: "100px",
     group_maxHeight: "80px",
     //container_maxHeight : "350px", 
     exclusive: false,

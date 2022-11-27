@@ -1,8 +1,18 @@
 /*insert style here*/
+#title{
+    float: top;
+}
 #map {
+    width: 300px;
     height: 600px;
+    float: left;
 }
 
+#graph {
+    height: 700px;
+    width: 1200px;
+    float: left;
+}
 /*#map { height: 600px; }
 
 #geojsonFeatures { 
