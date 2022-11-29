@@ -1,7 +1,7 @@
 // Google layers
-/*var g_roadmap = new L.Google('ROADMAP');
+var g_roadmap = new L.Google('ROADMAP');
 var g_satellite = new L.Google('SATELLITE');
-var g_terrain = new L.Google('TERRAIN');*/
+var g_terrain = new L.Google('TERRAIN');
 
 // OSM layers
 var osmUrl = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
@@ -61,15 +61,15 @@ L.marker([-19.45, -45.90]).addTo(corn_bh),
 
 
 var map = L.map('map', {
-    center: [26.3014, -80.6321],
-    zoom: 7
+    center: [25.8638, -80.8979],
+    zoom: 8
 });
 
 map.addLayer(osm);
 //counties.addTo(map);
 
 var baseMaps = [
-    /*{ 
+    { 
         groupName : "Google Base Maps",
         expanded : true,
         layers    : {
@@ -77,7 +77,7 @@ var baseMaps = [
             "Road Map"  :  g_roadmap,
             "Terreno"   :  g_terrain
         }
-    },*/ {
+    }, {
         groupName: "OSM Base Maps",
         layers: {
             "OpenStreetMaps": osm
@@ -137,11 +137,11 @@ var overlays = [
     }*/
 ];
 
-/*// configure StyledLayerControl options for the layer soybeans_sp
+// configure StyledLayerControl options for the layer soybeans_sp
 counties.StyledLayerControl = {
     removable: true,
     visible: false
-}*/
+}
 
 // configure the visible attribute with true to corn_bh
 low_end.StyledLayerControl = {
@@ -150,7 +150,7 @@ low_end.StyledLayerControl = {
 }
 
 var options = {
-    container_width: "100px",
+    container_width: "200px",
     group_maxHeight: "80px",
     //container_maxHeight : "350px", 
     exclusive: false,
@@ -158,9 +158,8 @@ var options = {
     position: 'topright'
 };
 
-var control = L.
-Control.styledLayerControl(baseMaps, overlays, options);
-map.addControl(control);
+var control = L.Control.styledLayerControl(baseMaps, overlays, options);
+    map.addControl(control);
 
 // test for adding new base layers dynamically
 // to create a new group simply add a layer with new group name
@@ -183,11 +182,11 @@ map.addControl(control);
 /*var popup = L.popup()
     .setLatLng([-16, -54])
     .setContent("The data that appears in this application are fictitious and do not represent actual data!")
-    .openOn(map);*/
+    .openOn(map);
 
 if (control.selectLayer(low_mid)) {
     map.addLayer(low_mid)
 };
 if (control.unSelectLayer(low_mid)) {
     map.removeLayer(low_mid)
-};
+};*/

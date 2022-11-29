@@ -3,16 +3,33 @@
     float: top;
 }
 #map {
-    width: 300px;
+    width: 30%;
     height: 600px;
     float: left;
+    background-color: black;
+}
+
+.leaflet-google-layer{
+    z-index: 0;
+}
+.leaflet-map-pane{
+    z-index: 100;
 }
 
 #graph {
     height: 700px;
-    width: 1200px;
+    width: 70%;
     float: left;
 }
+
+body {background-color: rgb(226, 255, 252);}
+
+.selector {
+    float: right;
+    /*padding-left: 0px;*/
+}
+
+
 /*#map { height: 600px; }
 
 #geojsonFeatures { 
