@@ -49,6 +49,7 @@ var title = "Population at Risk"
 
 function readCsv(filename) {
     d3.selectAll("svg").remove();
+    //map.remove();
     createMap();
     // Parse the Data
     d3.csv(filename, function (data) {
@@ -169,3 +170,4 @@ d3.selectAll('.selector')
     });
 
 readCsv("homes-at-risk.csv");
+//createMap();
