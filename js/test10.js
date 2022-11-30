@@ -1,4 +1,4 @@
-function createMap() {
+//function createMap() {
     var counties = new L.GeoJSON.AJAX("data/FloridaCounties_simp.json", {
         style: {
             "color": "#000000",
@@ -54,4 +54,4 @@ function createMap() {
 
     var layerControl = L.control.layers(overlayMaps).addTo(map);
 
-}
+//}

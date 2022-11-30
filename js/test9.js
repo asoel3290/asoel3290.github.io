@@ -50,7 +50,7 @@ var title = "Population at Risk"
 function readCsv(filename) {
     d3.selectAll("svg").remove();
     //map.remove();
-    createMap();
+    //createMap();
     // Parse the Data
     d3.csv(filename, function (data) {
         // append the svg object to the body of the page
