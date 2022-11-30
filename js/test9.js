@@ -1,3 +1,57 @@
+var counties = new L.GeoJSON.AJAX("data/FloridaCounties_simp.json", {
+    style: {
+        "color": "#000000",
+        "weight": 1,
+        "fillOpacity": 0
+    }
+});
+var low_end = new L.GeoJSON.AJAX("data/fl_slr_2ft_smp.json", {
+    style: {
+        "color": "#0000FF",
+        "weight": 1,
+        "fill-opacity": 0.8
+    }
+});
+var int_end = new L.GeoJSON.AJAX("data/fl_slr_4ft_smp.json", {
+    style: {
+        "color": "#0000FF",
+        "weight": 1,
+        "fill-opacity": 0.8
+    }
+});
+var high_end = new L.GeoJSON.AJAX("data/fl_slr_7ft_smp.json", {
+    style: {
+        "color": "#0000FF",
+        "weight": 1
+    }
+});
+
+var osmUrl = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
+var osmAttrib = 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+var osm = new L.TileLayer(osmUrl, { minZoom: 8, attribution: osmAttrib });
+
+//var streets = L.tileLayer(mapboxUrl, {id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mapboxAttribution});
+
+var map = new L.map('map', {
+    center: [25.8638, -80.8979],
+    zoom: 8,
+    layers: [osm, counties]
+});
+
+var baseMaps = {
+    "OpenStreetMap": osm,
+    //"Mapbox Streets": streets
+};
+
+var overlayMaps = {
+    "Low": low_end,
+    "Intermediate": int_end,
+    "High": high_end
+};
+
+var layerControl = L.control.layers(overlayMaps).addTo(map);
+
+
 var COLORS = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00'],
     LABELS = ["Broward", "Collier", "Miami-Dade", "Monroe", "Palm-Beach"],
     VALUES = ["val0", "val1", "val2", "val3", "val4"]
@@ -11,7 +65,7 @@ var margin = { top: 50, right: 30, bottom: 20, left: 50 },
     height = 600 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#map")
+/*var svg = d3.select("#graph")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -43,18 +97,30 @@ legend.append("text")
     .attr("text-anchor", "start")
     .text(function (d, i) {
         return LABELS[i];
-    });
+    });*/
 
 var title = "Population at Risk"
+//map.remove()
+
+
 
 function readCsv(filename) {
+
     d3.selectAll("svg").remove();
-    //map.remove();
+
+    //map.invalidateSize();
     //createMap();
+
+    //button();
+    //d3.selectAll("g > *").remove()
     // Parse the Data
     d3.csv(filename, function (data) {
+        console.log(filename);
         // append the svg object to the body of the page
-        var svg = d3.select("#graph")
+        //d3.selectAll("g > *").remove()
+
+        svg = d3.select("#graph")
+            //.selectAll("g > *").remove()
             .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
@@ -151,23 +217,27 @@ function readCsv(filename) {
             .style("font-size", "24px")
             //.style("text-decoration", "underline")  
             .text("Percentage of " + title);
-    
-       
+
+
     })
+
 };
+
 
 // update function:
 //function update(source) {
 //    d3.selectAll(source + ".csv").transition().duration(1000);
 //}
-
+//function button() {
 d3.selectAll('.selector')
     .on('click', function (d) {
 
-        readCsv("data/" + this.id + ".csv");
+        readCsv(this.id + ".csv");
         title = this.value
-        console.log(this.value);
+        //console.log(this.value);
+        //createMap();
     });
-
-readCsv("homes-at-risk.csv");
+//}
 //createMap();
+readCsv("population-at-risk.csv");
+
