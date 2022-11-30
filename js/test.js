@@ -15,15 +15,15 @@ var bing2 = new L.BingLayer("AvZ2Z8Jve41V_bnPTe2mw4Xi8YWTyj2eT87tSGSsezrYWiyaj0l
 
 var counties = new L.GeoJSON.AJAX("data/FloridaCounties.geojson");
 var low_mid = new L.GeoJSON.AJAX("data/FloridaCounties.geojson");
-var low_end = new L.GeoJSON.AJAX("data/FloridaCounties.geojson");
+var low_end = new L.GeoJSON.AJAX("data/fl_slr_2ft_smp.json");
 var int_mid = new L.GeoJSON.AJAX("data/FloridaCounties.geojson");
-var int_end = new L.GeoJSON.AJAX("data/FloridaCounties.geojson");
+var int_end = new L.GeoJSON.AJAX("data/fl_slr_4ft_smp.json");
 var high_mid = new L.GeoJSON.AJAX("data/FloridaCounties.geojson");
-var high_end = new L.GeoJSON.AJAX("data/FloridaCounties.geojson");
+var high_end = new L.GeoJSON.AJAX("data/fl_slr_7ft_smp.json");
 
 
-/*// Sao Paulo Soybeans Plant
-var soybeans_sp = new L.LayerGroup();
+// Sao Paulo Soybeans Plant
+/*var soybeans_sp = new L.LayerGroup();
 L.marker([-22, -49.80]).addTo(soybeans_sp),
     L.marker([-23, -49.10]).addTo(soybeans_sp),
     L.marker([-21, -49.50]).addTo(soybeans_sp);
@@ -96,21 +96,21 @@ var overlays = [
         groupName: "Low",
         expanded: true,
         layers: {
-            "2060": low_mid,
+            //"2060": low_mid,
             "2100": low_end
         }
     }, {
         groupName: "Intermediate",
         expanded: true,
         layers: {
-            "2060": int_mid,
+            //"2060": int_mid,
             "2100": int_end        
         }
     }, {
         groupName: "High",
         expanded: true,
         layers: {
-            "2060": high_mid,
+            //"2060": high_mid,
             "2100": high_end        
         }
     }
@@ -139,14 +139,14 @@ var overlays = [
 
 // configure StyledLayerControl options for the layer soybeans_sp
 counties.StyledLayerControl = {
-    removable: true,
-    visible: false
+	removable : true,
+	visible : false
 }
 
 // configure the visible attribute with true to corn_bh
-low_end.StyledLayerControl = {
-    removable: false,
-    visible: true
+high_end.StyledLayerControl = {
+	removable : false,
+	visible : true
 }
 
 var options = {
@@ -159,7 +159,7 @@ var options = {
 };
 
 var control = L.Control.styledLayerControl(baseMaps, overlays, options);
-    map.addControl(control);
+map.addControl(control);
 
 // test for adding new base layers dynamically
 // to create a new group simply add a layer with new group name
@@ -173,7 +173,7 @@ var control = L.Control.styledLayerControl(baseMaps, overlays, options);
 
 //control.removeGroup( "Rio de Janeiro");
 
-//control.selectLayer(low_mid);
+control.selectLayer(low_end);
 //control.unSelectLayer(low_end); 
 
 //control.selectGroup("Rio de Janeiro");
