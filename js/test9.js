@@ -51,6 +51,9 @@ var overlayMaps = {
 
 var layerControl = L.control.layers(overlayMaps).addTo(map);
 
+layerControl.addOverlay(counties, "Counties");
+
+
 
 var COLORS = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00'],
     LABELS = ["Broward", "Collier", "Miami-Dade", "Monroe", "Palm-Beach"],
@@ -62,7 +65,7 @@ var legcolor = d3.scaleOrdinal()
 // set the dimensions and margins of the graph
 var margin = { top: 50, right: 30, bottom: 20, left: 50 },
     width = window.innerWidth * 0.7 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+    height = window.innerHeight * 0.8 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 /*var svg = d3.select("#graph")
@@ -102,57 +105,68 @@ legend.append("text")
 var title = "Population at Risk"
 //map.remove()
 
+svg = d3.select("#graph")
+    //.selectAll("g > *").remove()
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var legspacing = 25;
+
+var legend = svg.selectAll(".legend")
+    .data(VALUES)
+    .enter()
+    .append("g")
+
+legend.append("rect")
+    .attr("fill", legcolor)
+    .attr("width", 20)
+    .attr("height", 20)
+    .attr("y", function (d, i) {
+        return 20 + (i * legspacing - 60);
+    })
+    .attr("x", window.innerWidth * 0.7 - 170);
+
+legend.append("text")
+    .attr("class", "label")
+    .attr("y", function (d, i) {
+        return 20 + (i * legspacing - 46);
+    })
+    .attr("x", window.innerWidth * 0.7 - 145)
+    .attr("text-anchor", "start")
+    .text(function (d, i) {
+        return LABELS[i];
+    });
 
 
 function readCsv(filename) {
 
-    d3.selectAll("svg").remove();
-
+    //d3.selectAll("#graph").remove();
+    //d3.selectAll("g > *").remove()
+    //d3.select("g.parent").selectAll("*").remove();
+    //d3.selectAll("div").append("#graph");
+    //d3.selectAll("svg").remove();
     //map.invalidateSize();
     //createMap();
+    //counties.addTo(map);
 
     //button();
-    //d3.selectAll("g > *").remove()
+
     // Parse the Data
     d3.csv(filename, function (data) {
         console.log(filename);
         // append the svg object to the body of the page
         //d3.selectAll("g > *").remove()
 
-        svg = d3.select("#graph")
+        /*svg = d3.select("#graph")
             //.selectAll("g > *").remove()
             .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-        var legspacing = 25;
-
-        var legend = svg.selectAll(".legend")
-            .data(VALUES)
-            .enter()
-            .append("g")
-
-        legend.append("rect")
-            .attr("fill", legcolor)
-            .attr("width", 20)
-            .attr("height", 20)
-            .attr("y", function (d, i) {
-                return 20 + (i * legspacing - 60);
-            })
-            .attr("x", window.innerWidth * 0.7 - 170);
-
-        legend.append("text")
-            .attr("class", "label")
-            .attr("y", function (d, i) {
-                return 20 + (i * legspacing - 46);
-            })
-            .attr("x", window.innerWidth * 0.7 - 145)
-            .attr("text-anchor", "start")
-            .text(function (d, i) {
-                return LABELS[i];
-            });
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");*/
 
         // List of subgroups = header of the csv files = soil condition here
         var subgroups = data.columns.slice(1)
@@ -162,6 +176,13 @@ function readCsv(filename) {
 
         console.log(groups)
         console.log(window.innerWidth)
+
+        svg.append("rect")
+            .attr("x", -100)
+            .attr("y", -100)
+            .attr("width", width+150)
+            .attr("height", height+150)
+            .attr("fill", "#E2FFFC")
 
         // Add X axis
         var x = d3.scaleBand()
@@ -208,8 +229,6 @@ function readCsv(filename) {
             .attr("fill", function (d) { return color(d.key); });
 
         //title
-
-
         svg.append("text")
             .attr("x", 0)
             .attr("y", 0 - (margin.top / 2))
@@ -218,6 +237,33 @@ function readCsv(filename) {
             //.style("text-decoration", "underline")  
             .text("Percentage of " + title);
 
+        //legend
+        var legspacing = 25;
+
+        var legend = svg.selectAll(".legend")
+            .data(VALUES)
+            .enter()
+            .append("g")
+
+        legend.append("rect")
+            .attr("fill", legcolor)
+            .attr("width", 20)
+            .attr("height", 20)
+            .attr("y", function (d, i) {
+                return 20 + (i * legspacing - 60);
+            })
+            .attr("x", window.innerWidth * 0.7 - 170);
+
+        legend.append("text")
+            .attr("class", "label")
+            .attr("y", function (d, i) {
+                return 20 + (i * legspacing - 46);
+            })
+            .attr("x", window.innerWidth * 0.7 - 145)
+            .attr("text-anchor", "start")
+            .text(function (d, i) {
+                return LABELS[i];
+            });
 
     })
 
