@@ -37,6 +37,7 @@ var map = new L.map('map', {
     zoom: 8,
     layers: [osm, counties]
 });
+L.Control.geocoder().addTo(map);
 
 var baseMaps = {
     "OpenStreetMap": osm,
@@ -52,6 +53,12 @@ var overlayMaps = {
 var layerControl = L.control.layers(overlayMaps).addTo(map);
 
 layerControl.addOverlay(counties, "Counties");
+
+/*const search = new GeoSearch.GeoSearchControl({
+    provider: new GeoSearch.OpenStreetMapProvider(),
+  });
+  
+  map.addControl(search);*/
 
 /*var marker = new L.marker([25.52, -81.15], { opacity: 0 }); //opacity may be set to zero
 marker.bindTooltip("Monroe", {permanent: true, className: "my-label", offset: [0, 0] });

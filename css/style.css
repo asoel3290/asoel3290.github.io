@@ -10,7 +10,7 @@ html {
 
 #map {
     width: 30%;
-    height: 90%;
+    height: 80%;
     float: left;
     background-color: black;
 }
@@ -166,7 +166,7 @@ body {
 }
 
 .help .tell-me:hover .popup2 {
-    top: -192px;
+    top: -200px;
     opacity: 1;
 }
 
