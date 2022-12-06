@@ -26,6 +26,46 @@ var high_end = new L.GeoJSON.AJAX("data/fl_slr_7ft_smp.json", {
     }
 });
 
+var broward = new L.GeoJSON.AJAX("data/Broward.geojson", {
+    style: {
+        "color": "#e41a1c",
+        "weight": 1,
+        "fillOpacity": 0.8
+    }
+});
+
+var collier = new L.GeoJSON.AJAX("data/Collier.geojson", {
+    style: {
+        "color": "#377eb8",
+        "weight": 1,
+        "fillOpacity": 0.8
+    }
+});
+
+var miami = new L.GeoJSON.AJAX("data/Miami.geojson", {
+    style: {
+        "color": "#4daf4a",
+        "weight": 1,
+        "fillOpacity": 0.8
+    }
+});
+
+var monroe = new L.GeoJSON.AJAX("data/Monroe.geojson", {
+    style: {
+        "color": "#984ea3",
+        "weight": 1,
+        "fillOpacity": 0.8
+    }
+});
+
+var palmbeach = new L.GeoJSON.AJAX("data/Palmbeach.geojson", {
+    style: {
+        "color": "#ff7f00",
+        "weight": 1,
+        "fillOpacity": 0.8
+    }
+});
+
 var osmUrl = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
 var osmAttrib = 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
 var osm = new L.TileLayer(osmUrl, { minZoom: 8, attribution: osmAttrib });
@@ -35,7 +75,7 @@ var osm = new L.TileLayer(osmUrl, { minZoom: 8, attribution: osmAttrib });
 var map = new L.map('map', {
     center: [25.8638, -80.8979],
     zoom: 8,
-    layers: [osm, counties]
+    layers: [osm, counties, broward, collier, miami, monroe, palmbeach]
 });
 L.Control.geocoder().addTo(map);
 
@@ -50,9 +90,23 @@ var overlayMaps = {
     "High": high_end
 };
 
-var layerControl = L.control.layers(overlayMaps).addTo(map);
+var counties_a = {
+    "Broward": broward,
+    "Collier": collier,
+    "Miami-Dade": miami,
+    "Monroe": monroe,
+    "Palm-Beach": palmbeach
+}
 
-layerControl.addOverlay(counties, "Counties");
+var counties_b = {
+    broward, collier, miami, monroe, palmbeach
+}
+
+var layerControl = L.control.layers(overlayMaps, counties_a).addTo(map);
+
+//layerControl.addOverlay(counties, "Counties");
+
+
 
 /*const search = new GeoSearch.GeoSearchControl({
     provider: new GeoSearch.OpenStreetMapProvider(),
