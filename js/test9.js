@@ -58,7 +58,7 @@ var monroe = new L.GeoJSON.AJAX("data/Monroe.geojson", {
     }
 });
 
-var palmbeach = new L.GeoJSON.AJAX("data/Palmbeach.geojson", {
+var palmbeach = new L.GeoJSON.AJAX("data/PalmBeach.geojson", {
     style: {
         "color": "#ff7f00",
         "weight": 1,
