@@ -30,6 +30,7 @@ html {
 }
 
 body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
     background-color: rgb(226, 255, 252);
 }
 
@@ -141,7 +142,7 @@ body {
 }
 
 .help .popup2 {
-    height: 240px;
+    height: 270px;
     top: 0px;
 }
 
@@ -153,7 +154,7 @@ body {
 
 .help:hover .popup {
     opacity: 1;
-    height: 270px;
+    height: 300px;
 }
 
 .help .tell-me p:first-child {
@@ -166,7 +167,7 @@ body {
 }
 
 .help .tell-me:hover .popup2 {
-    top: -200px;
+    top: -215px;
     opacity: 1;
 }
 
@@ -191,7 +192,7 @@ body {
 }
 
 .help .popup .popup2 .sub-levels strong {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .help .popup .popup2 p:nth-child(5) {

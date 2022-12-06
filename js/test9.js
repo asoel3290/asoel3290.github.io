@@ -72,10 +72,12 @@ var osm = new L.TileLayer(osmUrl, { minZoom: 8, attribution: osmAttrib });
 
 //var streets = L.tileLayer(mapboxUrl, {id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mapboxAttribution});
 
+var counties_b = L.layerGroup([broward, collier, miami, monroe, palmbeach]);
+
 var map = new L.map('map', {
     center: [25.8638, -80.8979],
     zoom: 8,
-    layers: [osm, counties, broward, collier, miami, monroe, palmbeach]
+    layers: [osm, counties, counties_b]
 });
 L.Control.geocoder().addTo(map);
 
@@ -90,6 +92,10 @@ var overlayMaps = {
     "High": high_end
 };
 
+var counties_colored = {
+    "Counties": counties_b
+}
+
 var counties_a = {
     "Broward": broward,
     "Collier": collier,
@@ -98,11 +104,7 @@ var counties_a = {
     "Palm-Beach": palmbeach
 }
 
-var counties_b = {
-    broward, collier, miami, monroe, palmbeach
-}
-
-var layerControl = L.control.layers(overlayMaps, counties_a).addTo(map);
+var layerControl = L.control.layers(overlayMaps, counties_colored).addTo(map);
 
 //layerControl.addOverlay(counties, "Counties");
 
@@ -225,7 +227,7 @@ function readCsv(filename) {
             .range([0, width])
             .padding([0.2])
         svg.append("g")
-            .style("font", "20px times")
+            .style("font", "20px helvetica")
             .attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(x).tickSize(0));
 
