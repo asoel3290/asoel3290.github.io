@@ -108,8 +108,16 @@ var layerControl = L.control.layers(overlayMaps, counties_colored).addTo(map);
 
 //layerControl.addOverlay(counties, "Counties");
 
+// When the user clicks on <div>, open the popup
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
 
-
+function creatorPopup() {
+    var creators = document.getElementById("cPopup");
+    creators.classList.toggle("show");
+}
 /*const search = new GeoSearch.GeoSearchControl({
     provider: new GeoSearch.OpenStreetMapProvider(),
   });
@@ -272,6 +280,7 @@ function readCsv(filename) {
             .attr("y", 0 - (margin.top / 2))
             .attr("text-anchor", "left")
             .style("font-size", "24px")
+            .style("color", "Navy")
             //.style("text-decoration", "underline")  
             .text("Percentage of " + title);
 

@@ -4,7 +4,7 @@
 <head>
   <!--meta charset="utf-8"-->
   <meta name="viewport" content="width=device-width">
-  <title>Natural Hazards</title>
+  <title>Southern Florida Sea Level Risk</title>
 
   <!--put your external stylesheet links here-->
   <!--link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
@@ -80,6 +80,42 @@
 
   <!--script type="text/javascript" src="js/test10.js"></script-->
 
+  <div class="popup" onclick="myFunction()"><img src="img/help.png" id="popimg">
+    <span class="popuptext" id="myPopup">
+      <h2>Help:</h2>
+      <h4>Map:</h4>
+      <p>Click on the <img src="img/layers.png" id="popimg"> symbol on the map to open the layers menu. <br> There are
+        options to turn
+        off the county colors and add inundated areas for different climate scenarios</p>
+      <p>Click on the <img src="img/search.png" id="popimg"> symbol on the map to search for a specific location on the
+        map</p>
+      <h4>Graph:</h4>
+      <img src="img/themes.png" id="themimg">
+      <p>Click on one of the theme buttons to see the risk of the selected theme for each county grouped by climate
+        scenario</p>
+      <p id="exit">Click anywhere within this box to close it</p>
+    </span>
+  </div>
+
+  <div class="creators" onclick="creatorPopup()">About the creators
+    <span class="creatortext" id="cPopup">
+      <p>This app was created as a final project for University of Colorado's <a
+          href="https://experts.colorado.edu/display/coursename_GEOG-4043" target="_blank">Advanced Visualization and
+          Web Mapping Class</a> taught by <a href="https://www.colorado.edu/geography/morteza-karimzadeh"
+          target="_blank">Morteza Karimzadeh.</a></p>
+      <p>The students who developed this app were:
+        <ul> 
+          <li>Lintang Andika - lian1451@colorado.edu</li> 
+          <li>Chris Myers - chmy1412@colorado.edu</li>
+          <li>Austin Soelzer - auso2686@colorado.edu</li>
+        </ul>
+      </p>
+      <p>We would also like to give credits to the teaching assistant of this class, <a
+          href="https://www.colorado.edu/geography/thomas-herrmann" target="_blank">Thomas Herrmann</a>, who guided us
+        through the development of this app.
+      </p>
+    </span>
+  </div>
 
   <div id="graph">
     <input class="selector" type="button" value="Homes at Risk" id="homes-at-risk" />

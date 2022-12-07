@@ -6,21 +6,28 @@ html {
 
 #title {
     float: top;
+    background-color: #779ecb;
+    color: black;
+    text-align: center;
 }
 
 #map {
     width: 30%;
     height: 80%;
+    position: relative;
     float: left;
     background-color: black;
+    z-index: 0;
 }
 
 .leaflet-google-layer {
+    position: relative;
     z-index: 0;
 }
 
 .leaflet-map-pane {
-    z-index: 100;
+    position: relative;
+    z-index: 0;
 }
 
 #graph {
@@ -43,7 +50,28 @@ body {
     position: absolute;
     float: right;
     width: 50px;
-    font-size:14px;
+    font-size: 14px;
+}
+
+.selector {
+    background-color: #779ecb;
+    /* navy */
+    border: none;
+    color: white;
+    padding: 1px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: 1px solid white;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.selector:hover {
+    background-color: #ffffff;
+    /* white */
+    color: #779ecb;
 }
 
 /*#map { height: 600px; }
@@ -110,13 +138,14 @@ body {
     margin: 0 auto;
     position: fixed;
     top: 10px;
-    right: 50px;
+    right: 60px;
 }
 
 .help .question {
     height: 40px;
     width: 80px;
-    background: #ccc;
+    background: black;
+    color: white;
     font-size: 12px;
     line-height: 40px;
     text-align: center;
@@ -137,7 +166,7 @@ body {
 }
 
 .help .popup {
-    left: -600px;
+    left: -580px;
     top: 10px;
 }
 
@@ -210,4 +239,124 @@ body {
 
 .help .popup p em {
     font-size: 12px;
+}
+
+/*howto popup*/
+/* Popup container */
+.popup {
+    cursor: pointer;
+    width: 40px;
+    margin: 0 auto;
+    position: fixed;
+    top: 20px;
+    left: 50px;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+    visibility: hidden;
+    width: 1000px;
+    height: 500px;
+    background-color: #555;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 10px 10px;
+    z-index: 999999999999;
+    position: fixed; /* or absolute */
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -500px;
+    opacity: 95%;
+    font-size: 20px;
+}
+
+/* Popup arrow
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}*/
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+#popimg {
+    height: 30px;
+    width: 30px;
+}
+
+#exit{
+    font-size: 12px;
+    text-align: right;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 95%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 95%;
+    }
+}
+
+/*howto popup*/
+/* Popup container */
+.creators {
+    cursor: pointer;
+    width: 150px;
+    margin: 0 auto;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    color: blue;
+    text-decoration: underline;
+}
+
+/* The actual popup (appears on top) */
+.creators .creatortext {
+    visibility: hidden;
+    width: 800px;
+    height: 140px;
+    background-color: white;
+    color: black;
+    text-align: left;
+    border-radius: 6px;
+    padding: 10px 10px;
+    z-index: 999999999999;
+    position: fixed; /* or absolute */
+    bottom: 40px;
+    left: 10px;
+    margin-left: 0px;
+    opacity: 95%;
+    font-size: 12px;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.creators .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
 }
