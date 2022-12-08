@@ -68,7 +68,7 @@ var palmbeach = new L.GeoJSON.AJAX("data/PalmBeach.geojson", {
 
 var osmUrl = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
 var osmAttrib = 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-var osm = new L.TileLayer(osmUrl, { minZoom: 7.5, attribution: osmAttrib });
+var osm = new L.TileLayer(osmUrl, { minZoom: 7, attribution: osmAttrib });
 
 //var streets = L.tileLayer(mapboxUrl, {id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mapboxAttribution});
 
@@ -76,7 +76,7 @@ var counties_b = L.layerGroup([broward, collier, miami, monroe, palmbeach]);
 
 var map = new L.map('map', {
     center: [25.8638, -80.8979],
-    zoom: 8,
+    zoom: 7,
     layers: [osm, counties, counties_b]
 });
 L.Control.geocoder().addTo(map);
