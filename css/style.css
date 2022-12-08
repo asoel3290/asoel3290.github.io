@@ -74,71 +74,14 @@ body {
     color: #779ecb;
 }
 
-/*#map { height: 600px; }
-
-#geojsonFeatures { 
-    fill: "black";
-    stroke: "black";
-    stroke-width: 1;
-}
-
-.sequence-control-container {  
-    width: 400px;  
-    height: 30px;  
-    background-color: rgba(255,255,255,0.8);  
-    padding: 10px;  
-    line-height: 45px;  
-    text-align: center;  
-    border: solid gray 1px;  
-}
-
-.range-slider {  
-    width: 250px;  
-}
-
-.step {  
-    width: 60px;  
-}
-
-.step img {  
-    width: 100%;  
-    height: auto;  
-}
-
-#forward {  
-    width: 30px;
-    height: 30px;
-    float: right;  
-}  
-
-#reverse {  
-    width: 30px;
-    height: 30px;
-    float: left;  
-}
-
-#map {
-    width:100%;
-    height:100%;
-}
-.leaflet-google-layer{
-    z-index: 0;
-}
-.leaflet-map-pane{
-    z-index: 100;
-}
-
-body {
-    padding: 300px;
-    font-family: ubuntu;
-}*/
-
+/* More info */
 .help {
     width: 40px;
     margin: 0 auto;
     position: fixed;
-    top: 10px;
-    right: 60px;
+    top: 20px;
+    left: 75px;
+    z-index: 9999;
 }
 
 .help .question {
@@ -166,7 +109,7 @@ body {
 }
 
 .help .popup {
-    left: -580px;
+    left: 0px;
     top: 10px;
 }
 
@@ -248,14 +191,14 @@ body {
     width: 40px;
     margin: 0 auto;
     position: fixed;
-    top: 20px;
-    left: 50px;
+    top: 25px;
+    left: 25px;
 }
 
 /* The actual popup (appears on top) */
 .popup .popuptext {
     visibility: hidden;
-    width: 1000px;
+    width: 1100px;
     height: 500px;
     background-color: #555;
     color: #fff;
@@ -267,7 +210,7 @@ body {
     top: 50%;
     left: 50%;
     margin-top: -250px;
-    margin-left: -500px;
+    margin-left: -550px;
     opacity: 95%;
     font-size: 20px;
 }
@@ -339,7 +282,7 @@ body {
 .creators .creatortext {
     visibility: hidden;
     width: 800px;
-    height: 140px;
+    height: 210px;
     background-color: white;
     color: black;
     text-align: left;

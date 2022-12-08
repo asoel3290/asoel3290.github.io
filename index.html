@@ -7,24 +7,14 @@
   <title>Southern Florida Sea Level Risk</title>
 
   <!--put your external stylesheet links here-->
-  <!--link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script-->
-
-
   <script type="text/javascript" src="lib/leaflet.js"></script>
   <link rel="stylesheet" href="lib/leaflet.css" />
 
-  <!--link rel="stylesheet" href="lib/styledLayerControl.css" />
-    <script type="text/javascript" src="lib/styledLayerControl.js"></script-->
-
-  <!--script
-    src="http://maps.google.com/maps/api/js?v=3.2&sensor=false&key=AIzaSyDeqZIQXFKMXqYccaxFFHtsxlhafvRFeQ4"></script>
-  <script src="https://raruto.github.io/cdn/leaflet-google/0.0.3/leaflet-google.js"></script-->
-
-  <script type="text/javascript" src="lib/jquery-3.6.1.js"></script>
+  <!--script type="text/javascript" src="lib/jquery-3.6.1.js"></script-->
   <script type="text/javascript" src="lib/leaflet.ajax.min.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+  <script type="text/javascript" src="lib/Control.Geocoder.js"></script>
+  <link rel="stylesheet" href="lib/Control.Geocoder.css" />
 
   <link rel="stylesheet" href="css/style.css">
 
@@ -75,45 +65,48 @@
   <div id="map"></div>
   <!--you can also use this space for internal scripts;
         place these within <script> tags-->
-  <!--put your external script links here>
-        <script src="https://d3js.org/d3.v6.js"></script-->
-
-  <!--script type="text/javascript" src="js/test10.js"></script-->
-
+  <!--put your external script links here-->
   <div class="popup" onclick="myFunction()"><img src="img/help.png" id="popimg">
     <span class="popuptext" id="myPopup">
       <h2>Help:</h2>
       <h4>Map:</h4>
       <p>Click on the <img src="img/layers.png" id="popimg"> symbol on the map to open the layers menu. <br> There are
-        options to turn
-        off the county colors and add inundated areas for different climate scenarios</p>
+        options to turn off the county colors and add the projected inundated areas in 2100 for different climate scenarios.</p>
       <p>Click on the <img src="img/search.png" id="popimg"> symbol on the map to search for a specific location on the
         map</p>
       <h4>Graph:</h4>
       <img src="img/themes.png" id="themimg">
       <p>Click on one of the theme buttons to see the risk of the selected theme for each county grouped by climate
         scenario</p>
+      <br>
       <p id="exit">Click anywhere within this box to close it</p>
     </span>
   </div>
 
   <div class="creators" onclick="creatorPopup()">About the creators
     <span class="creatortext" id="cPopup">
-      <p>This app was created as a final project for University of Colorado's <a
+      <p>This app was created as the final project for University of Colorado's <a
           href="https://experts.colorado.edu/display/coursename_GEOG-4043" target="_blank">Advanced Visualization and
-          Web Mapping Class</a> taught by <a href="https://www.colorado.edu/geography/morteza-karimzadeh"
-          target="_blank">Morteza Karimzadeh.</a></p>
+          Web Mapping Class</a> offered by <a href="https://www.colorado.edu/geography/"
+          target="_blank">CU Boulder's Geography Department.</a> and taught by <a href="https://www.colorado.edu/geography/morteza-karimzadeh"
+          target="_blank">Dr. Morteza Karimzadeh</a>.</p> 
       <p>The students who developed this app were:
-        <ul> 
-          <li>Lintang Andika - lian1451@colorado.edu</li> 
-          <li>Chris Myers - chmy1412@colorado.edu</li>
-          <li>Austin Soelzer - auso2686@colorado.edu</li>
-        </ul>
+      <ul>
+        <li>Lintang Andika - lian1451@colorado.edu</li>
+        <li>Chris Myers - chmy1412@colorado.edu</li>
+        <li>Austin Soelzer - auso2686@colorado.edu</li>
+      </ul>
       </p>
-      <p>We would also like to give credits to the teaching assistant of this class, <a
+      <p>We would also like to give credits to the teaching assistant for this class, <a
           href="https://www.colorado.edu/geography/thomas-herrmann" target="_blank">Thomas Herrmann</a>, who guided us
         through the development of this app.
       </p>
+      <p>The libraries used to develop this app were: <a href="https://leafletjs.com/"
+          target="_blank">Leaflet</a> and <a href="https://d3js.org/" target="_blank">D3</a>
+      </p>
+      <p>The plugins used to develop this app were: <a href="https://github.com/calvinmetcalf/leaflet-ajax"
+        target="_blank">Leaflet Ajax</a> and <a href="https://github.com/perliedman/leaflet-control-geocoder" target="_blank">Leaflet Control Geocoder</a>
+    </p>
     </span>
   </div>
 
@@ -126,20 +119,10 @@
         place these within <script> tags-->
 
     <!--put your external script links here-->
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <!--script src="https://d3js.org/d3.v6.js"></script-->
-
-    <!--script type="text/javascript" src="lib/d3.min.js"></script-->
-    <!--script type="text/javascript" src="lib/Leaflet-0.7.3.js"></script-->
-    <script type="text/javascript" src="lib/styledLayerControl.js"></script>
-    <script type="text/javascript" src="lib/jquery-3.6.1.js"></script>
-    <script type="text/javascript" src="lib/leaflet.ajax.min.js"></script>
-
-    <script type="text/javascript" src="js/test9.js"></script>
+    <script type="text/javascript" src="lib/d3.v4.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 
   </div>
-
-
 </body>
 
 </html>
