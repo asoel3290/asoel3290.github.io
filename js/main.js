@@ -286,8 +286,7 @@ function sixtyCsv(filename) {
             .range([0, x.bandwidth()])
             .padding([0.05])
 
-        svg
-            .append('defs')
+        svg.append('defs')
             .append('pattern')
             .attr('id', 'diagonalHatch')
             .attr('patternUnits', 'userSpaceOnUse')
