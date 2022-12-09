@@ -118,6 +118,7 @@ function creatorPopup() {
     var creators = document.getElementById("cPopup");
     creators.classList.toggle("show");
 }
+
 //Stuff for the legend
 var COLORS = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00'],
     LABELS = ["Broward", "Collier", "Miami-Dade", "Monroe", "Palm-Beach"],
